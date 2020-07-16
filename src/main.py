@@ -1,21 +1,16 @@
-#-*- coding: utf-8 -*-
-"""SPDX-License-Identifier: GPL-3.0-or-later"""
-""" Tutorial Dois - Brincando de git,
-
-.. codeauthor:: Raquel Fernandes <raquelmachado4993@gmail.com>
-
+# -*- coding: utf-8 -*-
+# SPDX-License-Identifier: GPL-3.0-or-later
+""" Tutorial Dois - Brincando de git.
+.. codeauthor:: Raquel <raquelmachado4993@gmail.com>
 - Como criar um repositório no github
 - Como clonar usando o comando git
 - Como comitar usando o comando git
-
-- classes neste módulo:
-
-    :py:class: 'Main' Exemplo de classe.
-
+Classes neste modulo:
+    :py:class:`Main` Exemplo de classe qualquer.
 Changelog
 ---------
 .. versionadded::    20.07
-        Código da Aula 2.
+        Documentação do tutorial.
 """
 
 class Main:
@@ -25,9 +20,16 @@ class Main:
 
     """
 
-    def __init__(self,versao):
-        print("classe exemplo, versao {}".format(versao))
+    def __init__(self,versao="20.07"):
+        self.versao = versao
+        #print("classe exemplo, versao {}".format(versao))
+
+    def get_versao(self):
+        """ Retorna a versao do sistema
+        :return: A versão do sistema """
+        return self.versao
+
 
 
 if __name__ =="__main__":
-    Main(1)
+    print(Main().get_versao())
