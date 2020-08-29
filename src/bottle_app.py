@@ -16,23 +16,22 @@ from main import Main
 
 @route('/')
 def hello_world():
-    return 'TutorialDois - aprendendo Git e Bottle'
+    return static_file('index.html', root='/home/raquelmachado4993/dev/foxtrot/src/', mimetype='text/html')
 
 @route('/oi')
 def oi_mundo():
     return 'Tutorial Dois - ensaiando uma nova rota'
 
-@route('/vs')
-def oi():
-    return 'Tutorial Dois - Versão do sistema: {}'.format(Main().get_versao())
+@route('<filename:re:.*\.py>')
+def py_mundo(filename):
+    return static_file(filename, root='/home/raquelmachado4993/dev/foxtrot/src/', mimetype='text/python')
 
 @route('/doc/<filename:re:.*\.html>')
 def doc_mundo(filename):
-    return static_file(filename, root='/home/raquelmachado4993/foxtrot/src/doc/build/html', mimetype='text/html')
+    return static_file(filename, root='/home/raquelmachado4993/dev/foxtrot/src/doc/build/html', mimetype='text/html')
 
 @route('/doc/<filename:re:.*\.css>')
 def css_mundo(filename):
-    return static_file(filename, root='/home/raquelmachado4993/foxtrot/src/doc/build/html', mimetype='text/css')
+    return static_file(filename, root='/home/raquelmachado4993/dev/foxtrot/src/doc/build/html', mimetype='text/css')
 
 application = default_app()
-
